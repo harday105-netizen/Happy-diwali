@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Diwali, Madam Ji</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Nunito:wght@400;600&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#1c0610; --ink:#fff1dc; --soft:#f0c9a0; --gold:#ffcf5c; --orange:#ff8a3d; --line:rgba(255,207,92,.28); --card:rgba(255,255,255,.07);
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Nunito',system-ui,sans-serif;line-height:1.7;overflow:hidden}
+h1,h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-style:italic;margin:0 0 14px;line-height:1.1;position:relative;z-index:1}
+h1{font-size:clamp(2.8rem,12vw,5.2rem);color:var(--gold);text-shadow:0 0 30px rgba(255,160,40,.45)}
+h2{font-size:clamp(2.1rem,8vw,3.3rem);color:var(--gold)}
+p{max-width:34em;margin:0 0 12px;font-size:1.1rem;position:relative;z-index:1}
+.soft{color:var(--soft)}
+#site{position:fixed;inset:0;overflow:hidden}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:safe center;text-align:center;overflow-y:auto;
+  padding:calc(24px + env(safe-area-inset-top,0px)) 24px 120px;
+  background:radial-gradient(circle at 50% 110%,rgba(255,138,61,.4),transparent 55%),radial-gradient(1.5px 1.5px at 15% 20%,#fff9 50%,transparent 52%),radial-gradient(1.5px 1.5px at 80% 14%,#fff8 50%,transparent 52%),radial-gradient(1.2px 1.2px at 60% 40%,#fff6 50%,transparent 52%),linear-gradient(170deg,#1c0610,#3a0d24 60%,#2a1040);
+  opacity:0;visibility:hidden;transform:translateX(36px);transition:opacity .6s ease,transform .6s ease,visibility 0s .6s}
+.slide.active{opacity:1;visibility:visible;transform:none;transition:opacity .6s ease,transform .6s ease}
+.slide.before{transform:translateX(-36px)}
+button{font:inherit;cursor:pointer;border:0;border-radius:999px;padding:12px 24px;background:linear-gradient(135deg,var(--gold),var(--orange));color:#3a0d24;font-weight:700;position:relative;z-index:1}
+button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.ghost{background:transparent;color:var(--gold);border:1.5px solid var(--gold)}
+.row{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin:10px 0 18px;position:relative;z-index:1}
+.diya{width:62px;height:66px;position:relative;background:none;padding:0;border-radius:0;color:inherit}
+.bowl{position:absolute;bottom:0;left:4px;right:4px;height:28px;border-radius:0 0 44px 44px;background:linear-gradient(#f0b543,#9a5a14);box-shadow:0 4px 10px rgba(0,0,0,.4)}
+.flame{position:absolute;left:50%;bottom:26px;width:15px;height:28px;margin-left:-7px;border-radius:50% 50% 50% 50%/62% 62% 38% 38%;background:radial-gradient(#fff8d0 20%,#ffb02e 60%,#ff5f1a);opacity:0;transform:scale(.2);transform-origin:bottom;transition:opacity .4s,transform .4s;filter:drop-shadow(0 0 12px #ffb02e)}
+.diya.lit .flame{opacity:1;transform:scale(1);animation:flick 1.3s ease-in-out infinite alternate}
+.diya.lit::after{content:"";position:absolute;left:50%;top:-14px;width:110px;height:110px;margin-left:-55px;background:radial-gradient(rgba(255,176,46,.35),transparent 65%);pointer-events:none}
+@keyframes flick{to{transform:scale(1.08,.94) rotate(2deg)}}
+.line{min-height:5.2em;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:clamp(1.4rem,5vw,1.9rem);color:var(--ink);max-width:22em;position:relative;z-index:1}
+.wishes{display:grid;gap:12px;max-width:30em;width:100%;position:relative;z-index:1}
+.wishes div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 18px;text-align:left}
+#fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+#nav{position:absolute;left:0;right:0;bottom:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px calc(16px + env(safe-area-inset-bottom,0px))}
+#dots{display:flex;gap:8px}
+#dots i{width:8px;height:8px;border-radius:50%;background:var(--line);transition:all .3s}
+#dots i.on{background:var(--gold);width:22px;border-radius:6px}
+#prev.off,#next.off{visibility:hidden}
+@media (prefers-reduced-motion:reduce){.slide,.slide.active{transition:none}.diya.lit .flame{animation:none}}
+</style>
+</head>
+<body>
+<main id="site">
+  <section class="slide">
+    <h1>Happy Diwali,<br>Madam Ji 🪔</h1>
+    <p class="soft">Aaj ke din diye jalte hain, par mera din to aapko yaad karke hi roshan ho jata hai.</p>
+  </section>
+
+  <section class="slide">
+    <h2>Pehle diye jalao</h2>
+    <p class="soft">Har diye par tap karo. Har diye me ek chhoti si baat likhi hai.</p>
+    <div class="row" id="diyas"></div>
+    <div class="line" id="dline" role="status" aria-live="polite"></div>
+  </section>
+
+  <section class="slide">
+    <h2>Dil ki baatein</h2>
+    <p class="soft">Ek chhoti si Diwali ki list, sirf aapke liye.</p>
+    <div class="line" id="fline" role="status" aria-live="polite">Button dabao, madam ji.</div>
+    <button id="fbtn">Ek baat sunao</button>
+  </section>
+
+  <section class="slide">
+    <h2>Meri 3 Diwali wishes</h2>
+    <div class="wishes">
+      <div>🪔 Aapki muskaan kabhi na ruke.</div>
+      <div>✨ Aap hamesha khush aur safe rahein.</div>
+      <div>💛 Aur aap meri zindagi me hamesha rahein. I love you.</div>
+    </div>
+  </section>
+
+  <section class="slide" id="fin">
+    <canvas id="fx"></canvas>
+    <h1>Happy Diwali,<br>my Madam Ji</h1>
+    <p>Aap meri zindagi ki sabse sundar roshni ho. 🥰</p>
+    <p>Aur humare 2 mahine complete hone par bahut bahut congratulations, madam ji! 🎉</p>
+    <p>I love you. 💛</p>
+    <p class="soft">Hamesha aapka, Harday</p>
+    <button id="boom">Dhamaka 🎆</button>
+  </section>
+
+  <nav id="nav">
+    <button id="prev" class="ghost off">Peeche</button>
+    <div id="dots" aria-hidden="true"></div>
+    <button id="next">Shuru karein</button>
+  </nav>
+</main>
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var calm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var dl=[
+    "Aap hansti ho to Diwali ki roshni bhi feeki lagti hai.",
+    "Aaj ke din aapki kami sabse zyada mehsoos ho rahi hai.",
+    "Mithai meethi hoti hai, par aapki baatein us se bhi meethi.",
+    "4 September ko Instagram par hum mile the, aur wo din meri sabse pyaari yaad hai.",
+    "Aaj ki wish: aap hamesha khush rahein."
+  ];
+  var dEl=$("diyas");
+  dl.forEach(function(t,i){
+    var b=document.createElement("button");
+    b.className="diya";b.setAttribute("aria-label","Diya "+(i+1)+" jalao");
+    b.innerHTML='<span class="bowl"></span><span class="flame"></span>';
+    b.addEventListener("click",function(){b.classList.add("lit");$("dline").textContent=t});
+    dEl.appendChild(b);
+  });
+
+  var fl=[
+    "Aap meri favourite notification ho.",
+    "Aap diya ki tarah ho: jahan bhi ho, wahan roshni aa jati hai.",
+    "Aapse baat karke har din thoda behtar ho jata hai.",
+    "Aapki ek muskaan se mera poora din ban jata hai.",
+    "Is Diwali bas itni dua hai ki aap hamesha khush rahein.",
+    "Hamare 2 mahine poore ho gaye hain, aur har din pehle se zyada khaas lagta hai.",
+    "Aaj ki mithai achhi hai, par aapka message us se zyada meetha lagta hai.",
+    "Aap mere liye bahut special ho, madam ji."
+  ],order=[],lastF=-1;
+  $("fbtn").addEventListener("click",function(){
+    if(!order.length){order=fl.map(function(_,i){return i}).sort(function(){return Math.random()-.5});if(order[order.length-1]===lastF)order.reverse();}
+    lastF=order.pop();$("fline").textContent=fl[lastF];$("fbtn").textContent="Ek aur baat 🪔";
+  });
+
+  /* fireworks */
+  var cv=$("fx"),cx=cv.getContext("2d"),ps=[],run=false;
+  function size(){cv.width=cv.offsetWidth;cv.height=cv.offsetHeight}
+  function burst(x,y){
+    if(calm)return;
+    var hue=[45,28,330,50][Math.floor(Math.random()*4)];
+    for(var i=0;i<56;i++){var a=Math.random()*6.283,v=1.5+Math.random()*3.5;
+      ps.push({x:x,y:y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:1,h:hue+Math.random()*20})}
+    if(!run){run=true;requestAnimationFrame(draw)}
+  }
+  function draw(){
+    cx.clearRect(0,0,cv.width,cv.height);
+    ps=ps.filter(function(p){return p.l>0});
+    ps.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=.045;p.vx*=.985;p.l-=.013;
+      cx.globalAlpha=Math.max(p.l,0);cx.fillStyle="hsl("+p.h+",100%,62%)";cx.beginPath();cx.arc(p.x,p.y,2.2,0,6.283);cx.fill()});
+    if(ps.length)requestAnimationFrame(draw);else{run=false;cx.clearRect(0,0,cv.width,cv.height)}
+  }
+  function salvo(){size();for(var i=0;i<4;i++)(function(i){setTimeout(function(){burst(cv.width*(.15+Math.random()*.7),cv.height*(.12+Math.random()*.4))},i*350)})(i)}
+  $("boom").addEventListener("click",salvo);
+
+  /* slides */
+  var slides=[].slice.call(document.querySelectorAll(".slide")),cur=0,dots=$("dots");
+  slides.forEach(function(){dots.appendChild(document.createElement("i"))});
+  function go(i){
+    cur=Math.max(0,Math.min(slides.length-1,i));
+    slides.forEach(function(el,k){
+      el.classList.toggle("active",k===cur);
+      el.classList.toggle("before",k<cur);
+      if(k===cur)el.scrollTop=0;
+    });
+    [].forEach.call(dots.children,function(d,k){d.classList.toggle("on",k===cur)});
+    $("prev").classList.toggle("off",cur===0);
+    $("next").classList.toggle("off",cur===slides.length-1);
+    $("next").textContent=cur===0?"Shuru karein":"Aage";
+    if(slides[cur].id==="fin")setTimeout(salvo,500);
+  }
+  $("next").addEventListener("click",function(){go(cur+1)});
+  $("prev").addEventListener("click",function(){go(cur-1)});
+  document.addEventListener("keydown",function(e){
+    if(e.key==="ArrowRight")go(cur+1);
+    if(e.key==="ArrowLeft")go(cur-1);
+  });
+  var tx=0,ty=0;
+  $("site").addEventListener("touchstart",function(e){tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+  $("site").addEventListener("touchend",function(e){
+    var dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+    if(Math.abs(dx)>70&&Math.abs(dy)<60)go(dx<0?cur+1:cur-1);
+  },{passive:true});
+  go(0);
+})();
+</script>
+</body>
+</html>
